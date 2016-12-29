@@ -9,9 +9,21 @@
 <body>
 <%
 String secondotp=(String)session.getAttribute("otp");
+session.setMaxInactiveInterval(20);
 
 %>
+<script>
 
+function validation()
+{
+	
+	session.setAttribute("otp", secondotp);
+	RequestDispatcher requestDis=request.getRequestDispatcher("Otpservlet.java");
+	requestDis.forward(request, response);
+	
+	}
+
+</script>
 <form action="Otpservlet" method="post">
 <table align="center">
 
@@ -21,7 +33,7 @@ String secondotp=(String)session.getAttribute("otp");
 </tr>
 
 <tr>
-<th><input type="submit" value="Submit" /></th>
+<th><input type="submit" value="Submit" onclick="return validation()"/></th>
 </tr>
 
 

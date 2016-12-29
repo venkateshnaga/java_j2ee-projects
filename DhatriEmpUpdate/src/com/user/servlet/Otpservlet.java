@@ -3,6 +3,7 @@ package com.user.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,24 +43,32 @@ public class Otpservlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		String rotp=(String)session.getAttribute("otp");
 		String lotp=request.getParameter("loginotp");
-		
-		if(rotp==lotp)
+		if(rotp!=null)
 		{
-			out.print("Please Enter Correct Input");
-			out.print("<html><body align='center'>");
-			out.print("<form action='index.html' method='post'"+ ">");
-			out.print("<br>");
-			out.print("<input type='submit' value='Back'>");
-			out.print("</form></body></html>");
+		if(rotp.equals(lotp))
+		{
+		
+			RequestDispatcher requestDis=request.getRequestDispatcher("profile.jsp");
+			requestDis.forward(request, response);	
+			
 		}
 		else
 		{
-			out.print("Please Enter wrong  Input");
-			out.print("Please Enter wrong  Input");
+			out.print("Wrong Output Try Again");
 			out.print("<html><body align='center'>");
 			out.print("<form action='index.html' method='post'"+ ">");
 			out.print("<br>");
-			out.print("<input type='submit' value='Back'>");
+			out.print("<input type='submit' value='GoTo Login Page'>");
+			out.print("</form></body></html>");
+		}
+		}
+		else
+		{
+			out.print("Session Expired");
+			out.print("<html><body align='center'>");
+			out.print("<form action='index.html' method='post'"+ ">");
+			out.print("<br>");
+			out.print("<input type='submit' value=' GoTo Login Page '>");
 			out.print("</form></body></html>");
 		}
 	}

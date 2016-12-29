@@ -3,6 +3,7 @@ package com.user.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,11 +57,25 @@ public class Loginservlet extends HttpServlet {
 		String uotp=GenerateOtp.getEmployeeOtp();
 		UserBean ub=new UserBean();
 		ub.setEmpotp(uotp);
+		
 		Dboperations dbo=new Dboperations();
 		ArrayList<UserBean> empList=dbo.search(uname);
+		session.setAttribute("employeeList", empList);
+		
+		
+		Object obj=session.getAttribute("employeeList");
+		ArrayList<UserBean> employeeList=(ArrayList)obj;
+		Iterator iterator=employeeList.iterator();
+		UserBean ub1=null;
+		while(iterator.hasNext())
+		{
+		ub1=(UserBean)iterator.next();
+		}
+		
+		
 		String rotp=GenerateOtp.getEmployeeOtp(); 
 		
-		if(uname.equals("nv8555@gmail.com") && upwd.equals("venky"))
+		if(uname.equals(ub1.getEmpmailid()) && upwd.equals(ub1.getEmppwd()))
 		{
 		
 			String resultMessage = "";

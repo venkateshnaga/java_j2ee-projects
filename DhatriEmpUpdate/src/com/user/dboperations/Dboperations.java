@@ -47,7 +47,7 @@ public class Dboperations
 	{
 		ArrayList<UserBean> employeeList=new ArrayList<UserBean>();
 		
-		String query="select * from where empmailid=?";
+		String query="select * from userdb where empmailid=?";
 		
 		try {
 			pst=connection.prepareStatement(query);
