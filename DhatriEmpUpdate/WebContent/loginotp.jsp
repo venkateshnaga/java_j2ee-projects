@@ -7,21 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="Loginservlet" method="post">
+<%
+String secondotp=(String)session.getAttribute("otp");
+
+%>
+
+<form action="Otpservlet" method="post">
 <table align="center">
+
 <tr>
-<td>Enter MailId:</td>
-<th><input type="text" name="empmailid" /></th>
-</tr>
-<tr>
-<td>Enter Password:</td>
-<th><input type="password" name ="emppwd" /></th>
+<td>Enter OTP:</td>
+<th><input type="text" name="loginotp" /></th>
 </tr>
 
 <tr>
-<th><input type="Submit" value="Login" /></th>
+<th><input type="submit" value="Submit" /></th>
 </tr>
+
+
+
 </table>
+
+
+
+
 </form>
 </body>
 </html>

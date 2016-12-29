@@ -7,21 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="Loginservlet" method="post">
-<table align="center">
-<tr>
-<td>Enter MailId:</td>
-<th><input type="text" name="empmailid" /></th>
-</tr>
-<tr>
-<td>Enter Password:</td>
-<th><input type="password" name ="emppwd" /></th>
-</tr>
 
-<tr>
-<th><input type="Submit" value="Login" /></th>
-</tr>
-</table>
-</form>
+<%
+String Message=(String)session.getAttribute("Message");
+
+out.print(Message);
+
+
+%>
+
+
+
 </body>
 </html>

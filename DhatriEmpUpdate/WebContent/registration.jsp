@@ -6,10 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<script src="regvalidations.js">
+
+
+</script>
 <body>
-<form action="registrationservlet" method="post">
+<h1 align="center">Registration Page</h1>
+<form action="Registrationservlet" method="post">
 
 <table align="center">
+
 <tr>
 <td>Enter Name:</td>
 <th><input type="text" name="empname" /></th>
@@ -21,12 +27,14 @@
 </tr>
 <tr>
 <td>Enter Password:</td>
-<th><input type="password" name="emppwd" /></th>
+<th><input type="password" name="emppwd" id="employeepwd" onkeypress="return clearField()" /></th>
+<td> <span id="error"></span> </td>
 </tr>
 
 <tr>
 <td>Confirm Password:</td>
-<th><input type="password" name="empcpwd" /></th>
+<th><input type="password" name="empcpwd" id="employeecpwd" onkeypress="return clearField()" /></th>
+<td> <span id="error1"></span> </td>
 </tr>
 
 <tr>
@@ -46,7 +54,7 @@
 
 <tr>
 <td></td>
-<th><input type="submit" value="SignUp"/></th>
+<th><input type="submit" value="SignUp" onclick="return myFunction()"/></th>
 </tr>
 </table>
 
