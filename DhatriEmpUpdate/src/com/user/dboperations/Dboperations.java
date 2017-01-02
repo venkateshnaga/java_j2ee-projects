@@ -43,7 +43,7 @@ public class Dboperations
 		
 		return result;
 	}
-	public ArrayList<UserBean> search(String uname)
+	public ArrayList<UserBean> search(String umail)
 	{
 		ArrayList<UserBean> employeeList=new ArrayList<UserBean>();
 		
@@ -51,7 +51,7 @@ public class Dboperations
 		
 		try {
 			pst=connection.prepareStatement(query);
-			pst.setString(1, uname);
+			pst.setString(1, umail);
 			
 			resultset=pst.executeQuery();
 			

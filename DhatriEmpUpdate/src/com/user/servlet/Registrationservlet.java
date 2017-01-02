@@ -82,7 +82,7 @@ public class Registrationservlet extends HttpServlet {
 		String resultMessage = "";
 
 		try {
-			Sendimage.sendEmail(ub);
+			SendMail.sendEmail(ub);
 			resultMessage = "Thanks For your enroll., Please check your mail";
 		}
 		catch (Exception ex)

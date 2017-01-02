@@ -9,7 +9,7 @@
 <body>
 <%
 String secondotp=(String)session.getAttribute("otp");
-session.setMaxInactiveInterval(120);
+session.setMaxInactiveInterval(30);
 
 %>
 <script>
@@ -36,13 +36,7 @@ function validation()
 <th><input type="submit" value="Submit" onclick="return validation()"/></th>
 </tr>
 
-
-
 </table>
-
-
-
-
 </form>
 </body>
 </html>

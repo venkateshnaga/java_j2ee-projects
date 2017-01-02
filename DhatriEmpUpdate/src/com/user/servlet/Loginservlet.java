@@ -52,20 +52,23 @@ public class Loginservlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		HttpSession session=request.getSession();
 		
-		String uname=request.getParameter("empmailid");
+		String umail=request.getParameter("empmailid");
 		String upwd=request.getParameter("emppwd");
-		String uotp=GenerateOtp.getEmployeeOtp();
+		
+		/*String uotp=GenerateOtp.getEmployeeOtp();
+		
 		UserBean ub=new UserBean();
-		ub.setEmpotp(uotp);
+		ub.setEmpotp(uotp);*/
 		
 		Dboperations dbo=new Dboperations();
-		ArrayList<UserBean> empList=dbo.search(uname);
+		ArrayList<UserBean> empList=dbo.search(umail);
 		session.setAttribute("employeeList", empList);
 		
-		
 		Object obj=session.getAttribute("employeeList");
+		
 		ArrayList<UserBean> employeeList=(ArrayList)obj;
 		Iterator iterator=employeeList.iterator();
+		
 		UserBean ub1=null;
 		while(iterator.hasNext())
 		{
@@ -73,26 +76,26 @@ public class Loginservlet extends HttpServlet {
 		}
 		
 		
-		String rotp=GenerateOtp.getEmployeeOtp(); 
+		String uotp=GenerateOtp.getEmployeeOtp(); 
 		
-		if(uname.equals(ub1.getEmpmailid()) && upwd.equals(ub1.getEmppwd()))
+		if(umail.equals(ub1.getEmpmailid()) && upwd.equals(ub1.getEmppwd()))
 		{
 		
 			String resultMessage = "";
 
 			try 
 			{
-				SendMailOtp.sendEmail(uname,uotp);
+				SendMailOtp.sendEmail(umail,uotp);
 				resultMessage = "Thanks For your enroll., Please check your mail";
 			}
 			catch (Exception ex)
 			{
 				ex.printStackTrace();
-				//resultMessage = "oops..!!!!: " + ex.getMessage();
+				resultMessage = "oops..!!!!: " + ex.getMessage();
 			} 
 			finally 
 			{
-				session.setAttribute("otp", rotp);
+				session.setAttribute("otp", uotp);
 				RequestDispatcher requestDis=request.getRequestDispatcher("loginotp.jsp");
 				requestDis.forward(request, response);
 			}

@@ -25,7 +25,7 @@
 <td>Enter MailId:</td>
 <th><input type="text" name="empmailid" /></th>
 </tr>
-<!-- <tr>
+<tr>
 <td>Enter Password:</td>
 <th><input type="password" name="emppwd" id="employeepwd" onkeypress="return clearField()" /></th>
 <td> <span id="error"></span> </td>
@@ -50,7 +50,7 @@
 <tr>
 <td>Enter Location:</td>
 <th><input type="text" name="emploc" /></th>
-</tr> --><br>
+</tr><br>
 
 <tr>
 <td></td>

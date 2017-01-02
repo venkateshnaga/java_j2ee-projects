@@ -41,11 +41,11 @@ public class Otpservlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		HttpSession session=request.getSession();
-		String rotp=(String)session.getAttribute("otp");
-		String lotp=request.getParameter("loginotp");
-		if(rotp!=null)
+		String sessionotp=(String)session.getAttribute("otp");
+		String userotp=request.getParameter("loginotp");
+		if(sessionotp!=null)
 		{
-		if(rotp.equals(lotp))
+		if(sessionotp.equals(userotp))
 		{
 		
 			RequestDispatcher requestDis=request.getRequestDispatcher("loginsucess.jsp");
