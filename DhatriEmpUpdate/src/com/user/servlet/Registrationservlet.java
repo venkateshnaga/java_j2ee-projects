@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.user.mail.SendMail;
+import com.user.mail.Sendimage;
 import com.user.autoid.GenerateEmployeeId;
 import com.user.bean.UserBean;
 import com.user.dboperations.Dboperations;
@@ -81,7 +82,7 @@ public class Registrationservlet extends HttpServlet {
 		String resultMessage = "";
 
 		try {
-			SendMail.sendEmail(ub);
+			Sendimage.sendEmail(ub);
 			resultMessage = "Thanks For your enroll., Please check your mail";
 		}
 		catch (Exception ex)

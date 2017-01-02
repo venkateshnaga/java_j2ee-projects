@@ -9,7 +9,7 @@
 <body>
 <%
 String secondotp=(String)session.getAttribute("otp");
-session.setMaxInactiveInterval(20);
+session.setMaxInactiveInterval(120);
 
 %>
 <script>

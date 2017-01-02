@@ -48,7 +48,7 @@ public class Otpservlet extends HttpServlet {
 		if(rotp.equals(lotp))
 		{
 		
-			RequestDispatcher requestDis=request.getRequestDispatcher("profile.jsp");
+			RequestDispatcher requestDis=request.getRequestDispatcher("loginsucess.jsp");
 			requestDis.forward(request, response);	
 			
 		}
