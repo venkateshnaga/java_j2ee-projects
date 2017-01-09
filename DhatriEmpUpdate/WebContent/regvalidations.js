@@ -9,8 +9,8 @@ function myFunction()
 
 	if(employeePwd!=employeeCpwd)
 		{
-		//alert("Passwords are not matched");
-		document.getElementById("error1").innerHTML="Passwords are not matched";
+		alert("Passwords are not matched");
+		//document.getElementById("error1").innerHTML="Passwords are not matched";
 		return false;
 		}
 	else
